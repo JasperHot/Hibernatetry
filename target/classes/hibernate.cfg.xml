@@ -9,6 +9,24 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <mapping resource="CrUser.hbm.xml"></mapping>
+
+        <!-- Print SQL to stdout. -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <!--
+        create：先删除，再创建
+        update：如果表不存在就创建，不一样就更新，一样就什么都不做。
+        create-drop：初始化时创建表，SessionFactory执行close()时删除表。
+        validate：验证表结构是否一致，如果不一致，就抛异常。
+        -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Hibernate Annotations (and package-info.java)  -->
+        <mapping class="com.java.maven.test.hibernatetry.CrUser"/>
+        <mapping class="com.java.maven.test.hibernatetry.House"/>
+
+        <!--<mapping resource="CrUser.hbm.xml"></mapping>
+        <mapping resource="House.hbm.xml"></mapping>-->
     </session-factory>
 </hibernate-configuration>

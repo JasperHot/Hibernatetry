@@ -15,5 +15,9 @@
         <property name="name" type="string">
             <column name="username" length="20" not-null="true" unique="true" />
         </property>
+        <set name="houses" table="house" inverse="true">
+            <key column="userId" not-null="true" /><!-- 确定关联的外键列 -->
+            <one-to-many class="com.java.maven.test.hibernatetry.House"/>
+        </set>
     </class>
 </hibernate-mapping>
