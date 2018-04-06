@@ -1,5 +1,7 @@
 package com.java.maven.test.hibernatetry;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -30,7 +32,8 @@ public class CrUser implements Serializable {
     private String name;
     @Column(name = "createdtime")
     private String createdTime;
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user")//,cascade ={CascadeType.ALL})
+    @Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
     private Set<House> houses=new HashSet<House>();
     //提供默认的构造方法
     public CrUser(){

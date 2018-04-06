@@ -25,7 +25,7 @@ public class House implements Serializable {
     private Integer id;
     @Column(name = "address")
     private String address;
-    @ManyToOne(cascade = CascadeType.REFRESH)
+    @ManyToOne//(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "userId")
     private CrUser user;
     @Transient

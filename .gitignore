@@ -1,5 +1,5 @@
 /target/
 /test-output/
 /logs/
-.*.iml
+*.iml
 .idea
